@@ -11,23 +11,25 @@ export default function Page() {
     <div className={classes["parent-div"]}>
       <h1>PurrChat</h1>
       <div className={classes["main-div"]}>
-        <input
-          onChange={(e) => setMessage(e.target.value)}
-          className={classes["chat-input"]}
-          placeholder="Message..."
-        />
-        <button
-          onClick={(e) => sendMessage(message)}
-          className={classes["button"]}
-        >
-          Send
-        </button>
+        <div>
+          {messages.map((e) => (
+            <li>{e}</li>
+          ))}
+        </div>
       </div>
-      <div>
-        {messages.map((e) => (
-          <li>{e}</li>
-        ))}
-      </div>
+      <div className={classes["inputs"]}>
+          <input
+            onChange={(e) => setMessage(e.target.value)}
+            className={classes["chat-input"]}
+            placeholder="Message..."
+          />
+          <button
+            onClick={(e) => sendMessage(message)}
+            className={classes["button"]}
+          >
+            Send
+          </button>
+        </div>
     </div>
   );
 }
